@@ -3,6 +3,8 @@ import { ApiMessage } from '../interfaces/ApiMessage';
 import Auth from '../utils/auth';
 
 const retrieveTickets = async () => {
+  Auth.checkTokenExpiration();
+
   try {
     const response = await fetch(
       '/api/tickets/',
@@ -27,6 +29,8 @@ const retrieveTickets = async () => {
 };
 
 const retrieveTicket = async (id: number | null): Promise<TicketData> => {
+  Auth.checkTokenExpiration();
+
   try {
     const response = await fetch(
       `/api/tickets/${id}`,
@@ -51,6 +55,8 @@ const retrieveTicket = async (id: number | null): Promise<TicketData> => {
 }
 
 const createTicket = async (body: TicketData) => {
+  Auth.checkTokenExpiration();
+
   try {
     const response = await fetch(
       '/api/tickets/', {
@@ -78,8 +84,11 @@ const createTicket = async (body: TicketData) => {
 }
 
 const updateTicket = async (ticketId: number, body: TicketData): Promise<TicketData> => {
+  Auth.checkTokenExpiration();
+
   try {
     const response = await fetch(
+    
       `/api/tickets/${ticketId}`, {
         method: 'PUT',
         headers: {
@@ -103,6 +112,8 @@ const updateTicket = async (ticketId: number, body: TicketData): Promise<TicketD
 };
 
 const deleteTicket = async (ticketId: number): Promise<ApiMessage> => {
+  Auth.checkTokenExpiration();
+  
   try {
     const response = await fetch(
       `/api/tickets/${ticketId}`, {

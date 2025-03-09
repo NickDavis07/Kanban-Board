@@ -36,6 +36,13 @@ class AuthService {
     localStorage.removeItem('id_token');
     window.location.assign('/');
   }
+
+  checkTokenExpiration() {
+    const token = this.getToken();
+    if (this.isTokenExpired(token)) {
+      this.logout();
+    }
+  }
 }
 
 export default new AuthService();
