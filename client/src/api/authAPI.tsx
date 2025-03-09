@@ -1,7 +1,10 @@
 
 import type { UserLogin } from '../interfaces/UserLogin';
+import Auth from '../utils/auth';
 
 const login = async (userInfo: UserLogin) => {
+  Auth.checkTokenExpiration();
+
   try {
     const response = await fetch('/auth/login', {
       method: 'POST',

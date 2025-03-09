@@ -1,6 +1,8 @@
 import Auth from '../utils/auth';
 
 const retrieveUsers = async () => {
+  Auth.checkTokenExpiration();
+  
   try {
     const response = await fetch('/api/users', {
       headers: {
