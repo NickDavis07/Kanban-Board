@@ -6,6 +6,7 @@ Welcome to the Kanban Board project! This application helps you manage tasks eff
 ## Live Site
 https://kanban-board-a34n.onrender.com/
 
+##Kanban Board Image
 ![image](https://github.com/user-attachments/assets/6de041de-8993-4a1a-84f8-77c7b16befbe)
 
 
